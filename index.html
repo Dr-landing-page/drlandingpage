@@ -126,18 +126,21 @@
     }
 
     .menu a {
-      text-decoration: none;
-      background-color: #f3e5f5;
-      color: #6a1b9a;
-      padding: 12px 16px;
-      border-radius: 10px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      width: 240px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+  text-decoration: none;
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+  padding: 16px;
+  border-radius: 10px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;        /* ⬅️ Susun ikon & teks vertikal */
+  align-items: center;           /* ⬅️ Tengahkan ikon & teks */
+  gap: 8px;                      /* ⬅️ Jarak antar ikon dan teks */
+  width: 240px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    
 
     .menu a:hover {
       transform: scale(1.05);
@@ -185,7 +188,7 @@
       <p class="tagline">Landing Page Murah Untuk Usaha Kamu ✨</p>
     </div>
 
-    <div class="promo-banner">🎁 Cuma Modal 35K Untuk Dapetin Landing Page Keren Kaya Gini! Sudah Termasuk Publish Loo!!
+    <div class="promo-banner">🎁 Cuma Modal 35K Untuk Dapetin Landing Page Keren Kaya Gini! Sudah Termasuk Publish Lifetime Loo!!
     
     </div>
 
