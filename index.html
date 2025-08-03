@@ -4,178 +4,236 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dr. Landing Page</title>
-
   <link rel="icon" href="assets/pp.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Baloo 2', cursive;
-      background: linear-gradient(135deg, #fdf1ff, #c1c8ff);
+      font-family: 'Quicksand', sans-serif;
+      background: radial-gradient(circle at 20% 40%, #ffe7d6 0%, #f7faff 100%);
       margin: 0;
-      padding: 20px;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    @keyframes twinkle {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.85; transform: scale(1.04); }
-    }
-
     .container {
-      max-width: 680px;
-      margin: auto;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(18px);
-      padding: 24px;
-      border-radius: 20px;
-      box-shadow: 0 10px 24px rgba(140,120,255,0.1);
+      max-width: 720px;
+      margin: 40px auto;
+      background: rgba(255,255,255,0.98);
+      border-radius: 28px;
+      box-shadow: 0 12px 32px rgba(80,80,180,0.12);
+      padding: 32px 24px;
+      position: relative;
+      z-index: 2;
     }
-
     .header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 32px;
+      position: relative;
     }
-
     .profile-img {
-      width: 90px;
-      height: 90px;
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 12px;
-      border: 2px solid #7e57c2;
-      animation: bounce 1.5s infinite;
+      margin-bottom: 14px;
+      border: 3px solid #ffb86c;
+      box-shadow: 0 0 0 8px #ffe7d6;
+      animation: float 2.5s infinite cubic-bezier(.4,0,.2,1);
     }
-
+    @keyframes float {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-18px);}
+    }
     h1 {
-      font-size: 26px;
-      color: #4a148c;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 32px;
+      color: #ff6f61;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      animation: fadeInDown 1s;
     }
-
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
     p.tagline {
-      font-size: 14px;
-      color: #6a1b9a;
+      font-size: 16px;
+      color: #5e81ac;
+      margin-bottom: 0;
+      animation: fadeInUp 1.2s;
     }
-
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
     .promo-banner {
-      background: linear-gradient(to right, #e8b5f9, #96a8ff);
+      background: linear-gradient(90deg, #ffb86c 0%, #8be9fd 100%);
       color: #fff;
-      padding: 14px;
-      border-radius: 12px;
-      font-size: 15px;
+      padding: 18px;
+      border-radius: 16px;
+      font-size: 17px;
       font-weight: bold;
       text-align: center;
-      margin: 24px 0;
-      box-shadow: 0 0 10px rgba(150,150,255,0.2);
+      margin: 32px 0 24px;
+      box-shadow: 0 4px 18px rgba(255,184,108,0.13);
+      letter-spacing: 0.5px;
+      animation: pulse 2s infinite;
     }
-
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 18px rgba(255,184,108,0.13);}
+      50% { box-shadow: 0 8px 32px rgba(139,233,253,0.18);}
+    }
     .product-slider {
       display: flex;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      gap: 14px;
-      padding-bottom: 16px;
+      gap: 18px;
+      padding-bottom: 18px;
+      margin-bottom: 16px;
     }
-
     .product-card {
       flex: 0 0 auto;
       scroll-snap-align: start;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border-radius: 14px;
-      padding: 12px;
-      min-width: 160px;
+      background: linear-gradient(135deg, #f7faff 60%, #ffe7d6 100%);
+      border-radius: 18px;
+      padding: 18px 12px;
+      min-width: 180px;
       text-align: center;
-      animation: twinkle 3s infinite ease-in-out;
-      border: 1px dashed #d1c4e9;
+      box-shadow: 0 4px 16px rgba(255,184,108,0.08);
+      border: 2px solid #ffb86c;
+      position: relative;
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: cardPop 1.2s;
     }
-
+    @keyframes cardPop {
+      0% { transform: scale(0.8); opacity: 0;}
+      100% { transform: scale(1); opacity: 1;}
+    }
     .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transform: scale(1.07) rotate(-2deg);
+      box-shadow: 0 12px 32px rgba(255,184,108,0.18);
+      z-index: 2;
     }
-
     .product-card img {
-      width: 100px;
+      width: 90px;
       margin-bottom: 10px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(139,233,253,0.13);
+      animation: twinkle 2.5s infinite;
     }
-
+    @keyframes twinkle {
+      0%, 100% { filter: brightness(1);}
+      50% { filter: brightness(1.15);}
+    }
     .product-card p {
-      font-size: 13px;
-      color: #4a148c;
+      font-size: 14px;
+      color: #ff6f61;
       margin: 4px 0;
+      font-weight: 600;
     }
-
+    .product-card a {
+      color: #5e81ac;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+    .product-card a:hover {
+      color: #ffb86c;
+      text-decoration: underline;
+    }
     .menu-section h2 {
       text-align: center;
-      margin: 28px 0 18px;
-      font-size: 18px;
-      color: #4a148c;
+      margin: 36px 0 20px;
+      font-size: 20px;
+      color: #ff6f61;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 1px;
+      animation: fadeInDown 1s;
     }
-
-    .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .menu a {
-  text-decoration: none;
-  background-color: #f3e5f5;
-  color: #6a1b9a;
-  padding: 16px;
-  border-radius: 10px;
-  font-weight: bold;
+   /* Tambahkan atau ubah bagian ini di style */
+.menu {
   display: flex;
-  flex-direction: column;        /* ⬅️ Susun ikon & teks vertikal */
-  align-items: center;           /* ⬅️ Tengahkan ikon & teks */
-  gap: 8px;                      /* ⬅️ Jarak antar ikon dan teks */
-  width: 240px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-direction: column; /* ubah dari row ke column */
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
 }
-
-    
-
+    .menu a {
+      text-decoration: none;
+      background: linear-gradient(90deg, #8be9fd 0%, #ffb86c 100%);
+      color: #fff;
+      padding: 18px 24px;
+      border-radius: 14px;
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 12px;
+      min-width: 180px;
+      font-size: 16px;
+      box-shadow: 0 2px 10px rgba(139,233,253,0.10);
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .menu a::after {
+      content: '';
+      position: absolute;
+      left: -40px;
+      top: 0;
+      width: 40px;
+      height: 100%;
+      background: rgba(255,255,255,0.12);
+      transform: skewX(-20deg);
+      animation: shine 2.5s infinite linear;
+    }
+    @keyframes shine {
+      0% { left: -40px;}
+      100% { left: 100%;}
+    }
     .menu a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 12px rgba(160,130,250,0.1);
+      transform: scale(1.08) rotate(1deg);
+      box-shadow: 0 8px 24px rgba(255,184,108,0.18);
     }
-
     .menu img {
-      width: 22px;
-      height: 22px;
+      width: 28px;
+      height: 28px;
+      filter: drop-shadow(0 2px 4px rgba(139,233,253,0.13));
+      animation: iconBounce 1.5s infinite;
     }
-
+    @keyframes iconBounce {
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-6px);}
+    }
     footer {
-      margin-top: 40px;
+      margin-top: 48px;
       text-align: center;
-      font-size: 12px;
-      color: #888;
+      font-size: 13px;
+      color: #5e81ac;
+      letter-spacing: 0.5px;
+      background: none;
+      animation: fadeInUp 1.2s;
     }
-
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       .container {
-        padding: 20px;
+        padding: 16px 6px;
       }
-
       h1 {
-        font-size: 22px;
+        font-size: 24px;
       }
-
       .product-card img {
-        width: 80px;
+        width: 70px;
       }
-
       .menu a {
-        width: 100%;
+        min-width: 120px;
         font-size: 14px;
-        padding: 10px 12px;
+        padding: 12px 10px;
+      }
+      .product-card {
+        min-width: 130px;
+        padding: 12px 6px;
       }
     }
   </style>
@@ -185,47 +243,56 @@
     <div class="header">
       <img src="assets/pp.png" alt="Logo Dr. Landing Page" class="profile-img" />
       <h1>Dr. Landing Page</h1>
-      <p class="tagline">Landing Page Murah Untuk Usaha Kamu ✨</p>
+      <p class="tagline">Landing Page Kekinian, Bikin Usaha Kamu Makin Laris! 🚀</p>
     </div>
-
-    <div class="promo-banner">🎁 Cuma Modal 35K Untuk Dapetin Landing Page Keren Kaya Gini! Sudah Termasuk Publish Lifetime Loo!!
-    
+    <div class="promo-banner">
+      🎉 Mulai dari <span style="color:#fffa;">35K</span> aja, dapetin landing page super kece! <br>
+      <span style="font-size:15px;">Publish lifetime, desain bebas request, support bisnis kamu!</span>
     </div>
-
-    <div class="product-slider">
-      <div class="product-card">
-        <p><a href="https://dr-landing-page.github.io/landingno2/" target="_blank">Landing Page 2</a></p>
-        <p>Cookies Theme</p>
-        <p>Rp 25.000</p>
-      </div>
-      <div class="product-card">
-        <p><a href="https://dr-landing-page.github.io/landingno3/" target="_blank">Landing Page 3</a></p>
-        <p>Calm Theme</p>
-        <p>Rp 25.000</p>
-      </div>
-      <div class="product-card">
-         <p><a href="https://dr-landing-page.github.io/landingno4/" target="_blank">Landing Page 4</a></p>
-        <p>Tekstil Theme</p>
-        <p>Rp 25.000</p>
-      </div>
-     
-      <div class="product-card">
-        <img src="assets/produk-4.png" alt="Produk 4" />
-        <p>Starlight Hand Cream</p>
-        <p>Rp 32.000</p>
-      </div>
-      <div class="product-card">
-        <img src="assets/produk-5.png" alt="Produk 5" />
-        <p>Moonbeam Facial Foam</p>
-        <p>Rp 55.000</p>
-      </div>
-      <div class="product-card">
-        <img src="assets/produk-6.png" alt="Produk 6" />
-        <p>Nova Vitamin Capsule</p>
-        <p>Rp 73.000</p>
-      </div>
-    </div>
-
+<div class="product-slider">
+  <div class="product-card">
+    <a href="#" target="_blank" class="product-link">
+      <img src="https://img.freepik.com/free-photo/modern-smartphone_1203-1237.jpg" alt="Smartphone Modern" />
+      <div class="product-title">Smartphone Modern 📱</div>
+      <div class="product-price">Rp 2.500.000</div>
+    </a>
+  </div>
+  <div class="product-card">
+    <a href="#" target="_blank" class="product-link">
+      <img src="https://img.freepik.com/free-photo/wireless-headphones_1203-1238.jpg" alt="Wireless Headphones" />
+      <div class="product-title">Wireless Headphones 🎧</div>
+      <div class="product-price">Rp 750.000</div>
+    </a>
+  </div>
+  <div class="product-card">
+    <a href="#" target="_blank" class="product-link">
+      <img src="https://img.freepik.com/free-photo/smartwatch_1203-1239.jpg" alt="Smartwatch" />
+      <div class="product-title">Smartwatch ⌚</div>
+      <div class="product-price">Rp 1.200.000</div>
+    </a>
+  </div>
+  <div class="product-card">
+    <a href="#" target="_blank" class="product-link">
+      <img src="https://img.freepik.com/free-photo/hand-cream_1203-1234.jpg" alt="Hand Cream" />
+      <div class="product-title">Hand Cream ✨</div>
+      <div class="product-price">Rp 32.000</div>
+    </a>
+  </div>
+  <div class="product-card">
+    <a href="#" target="_blank" class="product-link">
+      <img src="https://img.freepik.com/free-photo/facial-foam_1203-1235.jpg" alt="Facial Foam" />
+      <div class="product-title">Facial Foam 🌙</div>
+      <div class="product-price">Rp 55.000</div>
+    </a>
+  </div>
+  <div class="product-card">
+    <a href="#" target="_blank" class="product-link">
+      <img src="https://img.freepik.com/free-photo/vitamin-capsule_1203-1236.jpg" alt="Vitamin Capsule" />
+      <div class="product-title">Vitamin Capsule 💊</div>
+      <div class="product-price">Rp 73.000</div>
+    </a>
+  </div>
+</div>
     <div class="menu-section">
       <h2>📞 Hubungi Kami</h2>
       <div class="menu">
@@ -241,13 +308,11 @@
         <a href="https://www.tokopedia.com/dr.landingpage" target="_blank">
           <img src="assets/lynk.png" alt="Tokopedia" /> Lynk.id
         </a>
-          </div>
+      </div>
     </div>
-
     <footer>
-      © 2025 Dr. Landing Page — Powered by Kejeniusan Bisnis Kamu ✨
+      © 2025 Dr. Landing Page — Powered by Kreativitas Bisnis Kamu ✨
     </footer>
   </div>
 </body>
 </html>
-
